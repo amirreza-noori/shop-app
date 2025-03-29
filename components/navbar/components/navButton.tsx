@@ -33,9 +33,12 @@ const styles = StyleSheet.create({
 		flexDirection: "column",
 		justifyContent: "center",
 		alignItems: "center",
+		flexGrow: 1,
+		flexShrink: 0,
 	},
 	text: {
-		padding: 2,
+		width: "100%",
+		textAlign: "center",
 	},
 });
 

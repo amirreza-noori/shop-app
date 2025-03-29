@@ -1,4 +1,4 @@
-import { EmptyView, Loading, Text } from "@/components";
+import { EmptyView, ErrorView, Loading, Text } from "@/components";
 import { routes } from "@/routes";
 import { getCategoryTree } from "@/services";
 import { useNavigation } from "@react-navigation/native";
@@ -9,11 +9,12 @@ import { ScrollView, SectionList, StyleSheet, TouchableOpacity, View } from "rea
 export default function CategoriesScreen() {
 	const navigation = useNavigation<any>();
 	const [selectedIndex, setSelectedIndex] = useState(0);
-	const { data, isLoading } = useQuery({ queryKey: ["categories"], queryFn: getCategoryTree });
+	const { data, isLoading, isError } = useQuery({ queryKey: ["categories"], queryFn: getCategoryTree });
 	const mainCategory = data?.[selectedIndex];
 	const sections = mainCategory?.children;
 
 	if (isLoading) return <Loading />;
+	if (isError) return <ErrorView />;
 	return (
 		<View style={styles.container}>
 			<ScrollView horizontal={false} showsVerticalScrollIndicator style={styles.main}>

@@ -1,7 +1,8 @@
-import { Category, CategoryDetails, CategoryListResponse } from "./categoryType";
+import { CategoryDetailsResponse, CategoryListResponse } from "./categoryTypes";
 import { http } from "./core/http";
 import { getCompactResponse } from "./core/compactResponse";
 import { ResponseFrame } from "./core/type";
+import { Category } from "@/types";
 
 export const getCategoryTree = async () => {
 	const { data, ...response } = await http.get("/v1/dictionaries/?types%5B0%5D=category_tree&hashes%5B0%5D=");
@@ -20,7 +21,7 @@ export const getCategoryTree = async () => {
 };
 
 export const getCategory = async (code: string) => {
-	const { data, ...response } = await http.get<ResponseFrame<CategoryDetails>>(
+	const { data, ...response } = await http.get<ResponseFrame<CategoryDetailsResponse>>(
 		"/v1/categories/" + code + "/search/?page=1"
 	);
 

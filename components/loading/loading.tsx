@@ -1,11 +1,10 @@
-import { StyleSheet, View } from "react-native";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { LoadingProps } from "./types";
-import { Text } from "../text";
 
 const Loading = ({ style, ...props }: LoadingProps) => {
 	return (
 		<View style={StyleSheet.compose(styles.container, style)} {...props}>
-			<Text>در حال فراخوانی</Text>
+			<ActivityIndicator size="large" />
 		</View>
 	);
 };

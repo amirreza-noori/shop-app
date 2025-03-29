@@ -1,14 +1,11 @@
 import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, View } from "react-native";
-import { EmptyViewProps } from "./types";
-import { Text } from "../text";
-import { t } from "i18next";
+import { ErrorViewProps } from "./types";
 
-const EmptyView = ({ style, ...props }: EmptyViewProps) => {
+const ErrorView = ({ style, ...props }: ErrorViewProps) => {
 	return (
 		<View style={StyleSheet.compose(styles.container, style)} {...props}>
-			<Ionicons name="dice-outline" size={128} color="gray" />
-			<Text>{t("emptyMessage")}</Text>
+			<Ionicons name="cloud-offline-outline" size={128} color="gray" />
 		</View>
 	);
 };
@@ -18,8 +15,7 @@ export const styles = StyleSheet.create({
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
-		gap: 10,
 	},
 });
 
-export default EmptyView;
+export default ErrorView;
