@@ -8,8 +8,8 @@ import { NavbarProps } from "./types";
 const Navbar = ({ style, ...props }: NavbarProps) => {
 	return (
 		<View style={StyleSheet.compose(styles.container, style)} {...props}>
-			<NavButton title={t("home")} icon="home" route={routes.home} />
-			<NavButton title={t("profile")} icon="person" route={routes.profile} />
+			<NavButton title={t("aboutUs")} icon="information-circle" route={routes.aboutUs} />
+			<NavButton title={t("contactUs")} icon="call" route={routes.contactUs} />
 			<NavButton title={t("categories")} icon="grid" route={routes.categories} />
 			<NavButton title={t("cart")} icon="cart" route={routes.cart} />
 		</View>

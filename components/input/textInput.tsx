@@ -1,5 +1,6 @@
-import { StyleSheet, TextInput as RNTextInput, View, Text } from "react-native";
+import { StyleSheet, TextInput as RNTextInput, View } from "react-native";
 import { TextInputProps } from "./types";
+import { Text } from "../text";
 
 const TextInput = ({ label, style, ...props }: TextInputProps) => {
 	return (
@@ -24,9 +25,8 @@ const styles = StyleSheet.create({
 	},
 	label: {
 		position: "absolute",
-		top: -10,
-		left: 10,
-		backgroundColor: "white",
+		top: -13,
+		right: 10,
 	},
 });
 

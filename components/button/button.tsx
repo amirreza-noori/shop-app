@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 15,
 		paddingVertical: 10,
 		boxShadow: "0 0 5px rgba(0,0,0,0.1)",
+		justifyContent: "center",
+		alignItems: "center",
 	},
 	disabledContainer: {
 		opacity: 0.5,

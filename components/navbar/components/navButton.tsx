@@ -14,7 +14,7 @@ type Props = {
 
 const NavButton = ({ title, icon, route }: Props) => {
 	const navigation = useNavigation<any>();
-	const routeKey = useNavigationState((state) => state?.routes?.slice(-1)[0]?.name ?? routes.home);
+	const routeKey = useNavigationState((state) => state?.routes?.slice(-1)[0]?.name ?? routes.aboutUs);
 	const isActive = routeKey === route;
 
 	return (

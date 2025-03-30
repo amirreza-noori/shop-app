@@ -18,7 +18,7 @@ export default function App() {
 		<QueryClientProvider client={queryClient}>
 			<NavigationContainer direction="rtl">
 				<Stack.Navigator
-					initialRouteName={routes.home}
+					initialRouteName={routes.aboutUs}
 					screenLayout={({ children }) => (
 						<SafeAreaView style={{ direction, flex: 1 }}>{children}</SafeAreaView>
 					)}

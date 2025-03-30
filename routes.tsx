@@ -1,24 +1,24 @@
-import ProfileScreen from "@/screens/profile";
+import ContactUsScreen from "@/screens/contactUs";
 import { ScreenProps } from "@/types/screen";
 import CartScreen from "./screens/cart";
 import CategoriesScreen from "./screens/categories";
-import HomeScreen from "./screens/home";
+import AboutUsScreen from "./screens/aboutUs";
 import CategoryScreen from "./screens/category";
 import ProductScreen from "./screens/product";
 
 export const routes = {
-	home: "Home",
+	aboutUs: "AboutUs",
 	categories: "Categories",
 	cart: "Cart",
-	profile: "Profile",
+	contactUs: "ContactUs",
 	category: "Category",
 	product: "Product",
 };
 
 export const screens: Array<ScreenProps> = [
 	{
-		name: routes.home,
-		component: HomeScreen,
+		name: routes.aboutUs,
+		component: AboutUsScreen,
 	},
 	{
 		name: routes.categories,
@@ -29,8 +29,8 @@ export const screens: Array<ScreenProps> = [
 		component: CartScreen,
 	},
 	{
-		name: routes.profile,
-		component: ProfileScreen,
+		name: routes.contactUs,
+		component: ContactUsScreen,
 	},
 	{
 		name: routes.category,

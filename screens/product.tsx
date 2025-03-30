@@ -1,14 +1,16 @@
 import { Button, Carousel, ErrorView, Loading, Text } from "@/components";
 import { useCart } from "@/hooks";
+import { routes } from "@/routes";
 import { getProduct } from "@/services/product";
 import { Product } from "@/types";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
 import { t } from "i18next";
 
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 
 export default function ProductScreen() {
+	const navigation = useNavigation<any>();
 	const route = useRoute();
 	const cart = useCart();
 
@@ -25,6 +27,11 @@ export default function ProductScreen() {
 	const specifications = data.specifications;
 	const price = data.default_variant.price?.selling_price;
 
+	const handleAddToCard = () => {
+		cart.add(data);
+		navigation.navigate(routes.cart);
+	};
+
 	return (
 		<ScrollView style={styles.container}>
 			<Text size="xl" style={styles.title}>
@@ -40,7 +47,7 @@ export default function ProductScreen() {
 
 			<View style={styles.cta}>
 				<Text size="md">{price ? `${price.toLocaleString()} ${t("toman")}` : t("outOfStock")}</Text>
-				<Button disabled={!price} title={t("addToCart")} onPress={() => cart.add(data)} />
+				<Button disabled={!price} title={t("addToCart")} onPress={handleAddToCard} />
 			</View>
 
 			{!!description && (

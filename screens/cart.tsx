@@ -1,4 +1,4 @@
-import { Button, ProductCard } from "@/components";
+import { Button, EmptyView, ProductCard } from "@/components";
 import { useCart } from "@/hooks";
 import { ScrollView, StyleSheet } from "react-native";
 
@@ -7,14 +7,18 @@ export default function CartScreen() {
 
 	return (
 		<ScrollView contentContainerStyle={styles.container}>
-			{cart.items.map((item) => (
-				<ProductCard
-					key={item.id}
-					product={item}
-					variant="compact"
-					actions={<Button title="حذف" onPress={() => cart.remove(item.id)} />}
-				/>
-			))}
+			{!!cart.items.length ? (
+				cart.items.map((item) => (
+					<ProductCard
+						key={item.id}
+						product={item}
+						variant="compact"
+						actions={<Button title="حذف" onPress={() => cart.remove(item.id)} />}
+					/>
+				))
+			) : (
+				<EmptyView />
+			)}
 		</ScrollView>
 	);
 }
