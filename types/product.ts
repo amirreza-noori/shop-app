@@ -7,12 +7,11 @@ export type Product = {
 	product_type: string;
 	images: {
 		main: {
-			storage_ids: any[];
 			url: string[];
-			thumbnail_url: any;
-			temporary_id: any;
-			webp_url: string[];
 		};
+		list?: {
+			url: string[];
+		}[];
 	};
 	rating: {
 		rate: number;

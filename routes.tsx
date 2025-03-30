@@ -4,6 +4,7 @@ import CartScreen from "./screens/cart";
 import CategoriesScreen from "./screens/categories";
 import HomeScreen from "./screens/home";
 import CategoryScreen from "./screens/category";
+import ProductScreen from "./screens/product";
 
 export const routes = {
 	home: "Home",
@@ -11,6 +12,7 @@ export const routes = {
 	cart: "Cart",
 	profile: "Profile",
 	category: "Category",
+	product: "Product",
 };
 
 export const screens: Array<ScreenProps> = [
@@ -33,5 +35,9 @@ export const screens: Array<ScreenProps> = [
 	{
 		name: routes.category,
 		component: CategoryScreen,
+	},
+	{
+		name: routes.product,
+		component: ProductScreen,
 	},
 ];
