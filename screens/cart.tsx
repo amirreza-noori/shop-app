@@ -12,9 +12,8 @@ export default function CartScreen() {
 		<ScrollView contentContainerStyle={styles.container}>
 			{!!cart.items.length ? (
 				cart.items.map((item) => (
-					<TouchableOpacity onPress={() => navigation.navigate(routes.product, item)}>
+					<TouchableOpacity key={item.id} onPress={() => navigation.navigate(routes.product, item)}>
 						<ProductCard
-							key={item.id}
 							product={item}
 							variant="compact"
 							actions={<Button title="حذف" onPress={() => cart.remove(item.id)} />}

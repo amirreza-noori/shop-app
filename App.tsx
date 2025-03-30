@@ -8,11 +8,24 @@ import "./i18n";
 import { direction } from "./i18n";
 import { routes, screens } from "./routes";
 import { queryClient } from "./services/core/queryClient";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
+
+SplashScreen.preventAutoHideAsync();
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-	useFonts({ Vazir: require("./assets/fonts/Vazir.ttf"), "Vazir-Bold": require("./assets/fonts/Vazir-Bold.ttf") });
+	const [loaded, error] = useFonts({
+		Vazir: require("./assets/fonts/Vazir.ttf"),
+		"Vazir-Bold": require("./assets/fonts/Vazir-Bold.ttf"),
+	});
+
+	useEffect(() => {
+		if (loaded || error) SplashScreen.hideAsync();
+	}, [loaded, error]);
+
+	if (!loaded && !error) return null;
 
 	return (
 		<QueryClientProvider client={queryClient}>
