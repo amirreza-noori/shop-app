@@ -26,10 +26,15 @@ export default function ProductScreen() {
 	const images = data.images.list;
 	const specifications = data.specifications;
 	const price = data.default_variant.price?.selling_price;
+	const isInTheCart = cart.items.findIndex((item) => item.id === product.id) >= 0;
 
 	const handleAddToCard = () => {
 		cart.add(data);
 		navigation.navigate(routes.cart);
+	};
+
+	const handleRemoveFromCard = () => {
+		cart.remove(product.id);
 	};
 
 	return (
@@ -47,7 +52,11 @@ export default function ProductScreen() {
 
 			<View style={styles.cta}>
 				<Text size="md">{price ? `${price.toLocaleString()} ${t("toman")}` : t("outOfStock")}</Text>
-				<Button disabled={!price} title={t("addToCart")} onPress={handleAddToCard} />
+				{isInTheCart ? (
+					<Button color="danger" title={t("removeFromCart")} onPress={handleRemoveFromCard} />
+				) : (
+					<Button disabled={!price} title={t("addToCart")} onPress={handleAddToCard} />
+				)}
 			</View>
 
 			{!!description && (

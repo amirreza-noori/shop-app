@@ -25,7 +25,7 @@ export const useCart = create<CartStore>()((set) => ({
 			try {
 				return { items: items.filter((item) => item.id !== id) };
 			} finally {
-				Alert.alert(t("productRemovedToCart"));
+				Alert.alert(t("productRemovedFromCart"));
 			}
 		}),
 }));
