@@ -16,7 +16,7 @@ const Navbar = ({ style, ...props }: NavbarProps) => {
 	);
 };
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		display: "flex",
 		direction,

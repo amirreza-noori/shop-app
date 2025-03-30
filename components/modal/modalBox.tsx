@@ -28,7 +28,7 @@ const ModalBox = ({ title, children, visible, onClose, contentStyle, style }: Mo
 	);
 };
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	backdrop: {
 		position: "absolute",
 		width: "100%",

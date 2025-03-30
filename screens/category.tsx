@@ -1,4 +1,4 @@
-import { EmptyView, ErrorView, Loading, ProductCard, Text } from "@/components";
+import { EmptyView, ErrorView, Loading, ProductCard } from "@/components";
 import { routes } from "@/routes";
 import { getCategory } from "@/services";
 import { Category } from "@/types";
@@ -20,7 +20,7 @@ export default function CategoryScreen() {
 	if (isError) return <ErrorView />;
 	return (
 		<View style={styles.container}>
-			{products?.length ? (
+			{!!products?.length ? (
 				<ScrollView contentContainerStyle={styles.productsContainer}>
 					{products.map((product) => (
 						<TouchableOpacity

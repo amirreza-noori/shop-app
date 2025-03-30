@@ -1,18 +1,28 @@
-import { Text } from "@/components";
-import { StyleSheet, View } from "react-native";
+import { Button, ProductCard } from "@/components";
+import { useCart } from "@/hooks";
+import { ScrollView, StyleSheet } from "react-native";
 
 export default function CartScreen() {
+	const cart = useCart();
+
 	return (
-		<View style={styles.container}>
-			<Text>صفحه سبد خرید</Text>
-		</View>
+		<ScrollView contentContainerStyle={styles.container}>
+			{cart.items.map((item) => (
+				<ProductCard
+					key={item.id}
+					product={item}
+					variant="compact"
+					actions={<Button title="حذف" onPress={() => cart.remove(item.id)} />}
+				/>
+			))}
+		</ScrollView>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
+		padding: 10,
+		gap: 10,
 	},
 });

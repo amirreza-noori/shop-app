@@ -10,7 +10,7 @@ const TextInput = ({ label, style, ...props }: TextInputProps) => {
 	);
 };
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		display: "flex",
 		backgroundColor: "white",

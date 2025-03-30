@@ -1,14 +1,16 @@
-import { Carousel, ErrorView, Loading, Text } from "@/components";
+import { Button, Carousel, ErrorView, Loading, Text } from "@/components";
+import { useCart } from "@/hooks";
 import { getProduct } from "@/services/product";
 import { Product } from "@/types";
 import { useRoute } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
 import { t } from "i18next";
 
-import { Dimensions, Image, Modal, ScrollView, StyleSheet, View } from "react-native";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
 
 export default function ProductScreen() {
 	const route = useRoute();
+	const cart = useCart();
 
 	const product = route.params as Product;
 	const { data, isLoading, isError } = useQuery({
@@ -21,6 +23,7 @@ export default function ProductScreen() {
 	const description = data.expert_reviews?.description;
 	const images = data.images.list;
 	const specifications = data.specifications;
+	const price = data.default_variant.price?.selling_price;
 
 	return (
 		<ScrollView style={styles.container}>
@@ -34,6 +37,11 @@ export default function ProductScreen() {
 					style={{ height: 300 }}
 				/>
 			)}
+
+			<View style={styles.cta}>
+				<Text size="md">{price ? `${price.toLocaleString()} ${t("toman")}` : t("outOfStock")}</Text>
+				<Button disabled={!price} title={t("addToCart")} onPress={() => cart.add(data)} />
+			</View>
 
 			{!!description && (
 				<View>
@@ -77,6 +85,12 @@ const styles = StyleSheet.create({
 		width: "100%",
 		height: "100%",
 		objectFit: "contain",
+	},
+	cta: {
+		flexDirection: "row",
+		padding: 10,
+		alignItems: "center",
+		justifyContent: "space-between",
 	},
 	description: {
 		padding: 10,

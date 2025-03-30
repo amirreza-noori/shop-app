@@ -5,7 +5,7 @@ const Card = ({ style, ...props }: CardProps) => {
 	return <View style={StyleSheet.compose(styles.container, style)} {...props} />;
 };
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		display: "flex",
 		backgroundColor: "white",

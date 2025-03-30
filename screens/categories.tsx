@@ -8,7 +8,7 @@ import { ScrollView, SectionList, StyleSheet, TouchableOpacity, View } from "rea
 
 export default function CategoriesScreen() {
 	const navigation = useNavigation<any>();
-	const [selectedIndex, setSelectedIndex] = useState(0);
+	const [selectedIndex, setSelectedIndex] = useState(8);
 	const { data, isLoading, isError } = useQuery({ queryKey: ["categories"], queryFn: getCategoryTree });
 	const mainCategory = data?.[selectedIndex];
 	const sections = mainCategory?.children;

@@ -9,7 +9,7 @@ const Loading = ({ style, ...props }: LoadingProps) => {
 	);
 };
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		display: "flex",
 		flex: 1,

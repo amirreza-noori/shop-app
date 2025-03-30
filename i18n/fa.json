@@ -5,5 +5,9 @@
     "profile": "پروفایل",
     "outOfStock": "ناموجود",
     "emptyMessage": "اطلاعاتی برای نمایش وجود ندارد",
-    "description": "توضیحات"
+    "description": "توضیحات",
+    "addToCart": "اضافه به سبد خرید",
+    "toman": "تومان",
+    "productAddedToCart": "محصول با موفقیت به سبد خرید اضافه شد",
+    "productRemoveFromCart": "محصول با موفقیت از سبد خرید حذف شد"
 }

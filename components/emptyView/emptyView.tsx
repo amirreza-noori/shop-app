@@ -13,7 +13,7 @@ const EmptyView = ({ style, ...props }: EmptyViewProps) => {
 	);
 };
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		display: "flex",
 		justifyContent: "center",
